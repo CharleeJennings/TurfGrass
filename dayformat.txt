@@ -1,0 +1,39 @@
+{
+  "latitude":37.8267,
+  "longitude":-122.4233,
+  "timezone":"America/Los_Angeles",
+  "offset":-8,
+  "daily": {
+    "data": [
+      {
+        "time":1485158400,
+        "summary":"Light rain until afternoon, starting again in the evening.",
+        "icon":"rain",
+        "sunriseTime":1485184880,
+        "sunsetTime":1485221055,
+        "moonPhase":0.87,
+        "precipIntensity":0.0152,
+        "precipIntensityMax":0.0313,
+        "precipIntensityMaxTime":1485169200,
+        "precipProbability":0.64,
+        "precipType":"rain",
+        "temperatureMin":45.68,
+        "temperatureMinTime":1485183600,
+        "temperatureMax":50.27,
+        "temperatureMaxTime":1485208800,
+        "apparentTemperatureMin":44.49,
+        "apparentTemperatureMinTime":1485241200,
+        "apparentTemperatureMax":50.27,
+        "apparentTemperatureMaxTime":1485208800,
+        "dewPoint":43.03,
+        "humidity":0.83,
+        "windSpeed":3.89,
+        "windBearing":242,
+        "visibility":8.16,
+        "cloudCover":0.77,
+        "pressure":1010.01,
+        "ozone":382.21
+      }
+    ]
+  }
+}
