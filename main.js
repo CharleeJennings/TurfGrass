@@ -28,6 +28,9 @@ $(function (){
     var tempMin = 0;
     var tempMax = 0; 
     var heatUnits = 0;
+    
+    var cumulativeHeatUnits = 0;
+    
     var newElement = new timeTemp() ;
     while(start <= today)
     {           
@@ -70,9 +73,10 @@ $(function (){
                 
                 $crabgrasslist.append('<font face="courier"><li>' + cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + '</li></font>');
                 dateList.push(cur.toDateString());
-                dataList.push(heatUnits);
+                cumulativeHeatUnits += heatUnits;
+                dataList.push(cumulativeHeatUnits);
                 
-            
+                
             }
             
             
@@ -156,7 +160,7 @@ $(function () {
                      series: 
                      [{
                          name: 'Crabgrass',
-                         data: dataList
+                         data: dataList                         
                      }]
             });
              });
