@@ -74,8 +74,8 @@ $(function (){
                 $crabgrasslist.append('<font face="courier"><li>' + cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + '</li></font>');
                 dateList.push(cur.toDateString());
                 cumulativeHeatUnits += heatUnits;
-                dataList.push(cumulativeHeatUnits);
-                
+                //dataList.push(cumulativeHeatUnits);
+                dataList.push(heatUnits);
                 
             }
             
