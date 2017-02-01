@@ -1,6 +1,6 @@
 var timeTempList = [];
 var dateList = [];
-var $crabgrasslist = $('#crabgrasslist');
+
 var dataList =[];
 
 function timeTemp(date, tempMax, tempMin){
@@ -12,8 +12,6 @@ function timeTemp(date, tempMax, tempMin){
 
 // Get data from JAN1 to date
 $(function (){
-
-//    var $crabgrasslist = $('#crabgrasslist');
 
     var today = new Date(); // Today!
     var start = new Date(new Date().getFullYear(), 0, 1); // Jan 1 of Current Year
@@ -46,19 +44,11 @@ $(function (){
                 tempMin = parseFloat(inputted.daily.data["0"].temperatureMin);
                 tempMax = parseFloat(inputted.daily.data["0"].temperatureMax);
             
-                
                 newElement = new timeTemp(cur, tempMax, tempMin);
                 timeTempList.push(newElement);
             
-                
                 heatUnits = tempMax + tempMin;
-                heatUnits = heatUnits / 2; // eventually, subtract base
-            
-                // if heatUnit is negative default to 0 
-                if (heatUnits < 0) 
-                {
-                    heatUnits = 0;
-                }
+                heatUnits = heatUnits / 2;
             
                 dateList.push(cur.toDateString());
                 cumulativeHeatUnits += heatUnits;
