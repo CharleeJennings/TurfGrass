@@ -1,14 +1,6 @@
 var timeTempList = [];
 var dateList = [];
-
 var dataList =[];
-
-function timeTemp(date, tempMax, tempMin){
-    this.date = date;
-    this.tempMax = tempMax;
-    this.tempMin = tempMin;
-    
-}
 
 // Get data from JAN1 to date
 $(function (){
@@ -23,7 +15,6 @@ $(function (){
     var heatUnits = 0;
     var cumulativeHeatUnits = 0;
     
-    var newElement = new timeTemp() ;
     while(start <= today)
     {           
 
@@ -44,9 +35,6 @@ $(function (){
                 tempMin = parseFloat(inputted.daily.data["0"].temperatureMin);
                 tempMax = parseFloat(inputted.daily.data["0"].temperatureMax);
             
-                newElement = new timeTemp(cur, tempMax, tempMin);
-                timeTempList.push(newElement);
-            
                 heatUnits = tempMax + tempMin;
                 heatUnits = heatUnits / 2;
             
@@ -62,20 +50,7 @@ $(function (){
        start = new Date(newDate);
 
     }
-  
-    
 });
-
-function populateList() {
-    
-    // empty list
-    $crabgrasslist.empty();
-    
-    // repopulate
-    timeTempList.forEach(function(entry) {
-        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
-    });
-}
 
 // Show/Hide the list
 $(function () {
