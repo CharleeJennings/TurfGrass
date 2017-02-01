@@ -2,6 +2,7 @@ var timeTempList = [];
 var dateList = [];
 var $crabgrasslist = $('#crabgrasslist');
 var dataList =[];
+
 function timeTemp(date, tempMax, tempMin){
     this.date = date;
     this.tempMax = tempMax;
@@ -10,15 +11,9 @@ function timeTemp(date, tempMax, tempMin){
 }
 
 // Get data from JAN1 to date
-
-
-
 $(function (){
 
-
     var $crabgrasslist = $('#crabgrasslist');
-
- 
 
     var today = new Date(); // Today!
     var start = new Date(new Date().getFullYear(), 0, 1); // Jan 1 of Current Year
@@ -41,7 +36,7 @@ $(function (){
         {
             
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/8c96ab646f1284f6e9248c3528fe9146/37.8267,-122.4233,' + day + '?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/37.8267,-122.4233,' + day + '?exclude=currently,hourly,minutely,alerts,flags',
         success: function(inputted) 
             
             {
@@ -112,7 +107,7 @@ $(function () {
          var $this = $(this);
          if ($this.is(':checked')) 
          {
-             populateList();
+//             populateList();
              $('#crabgrasslist').show();
              $(function () 
              {
