@@ -13,7 +13,7 @@ function timeTemp(date, tempMax, tempMin){
 // Get data from JAN1 to date
 $(function (){
 
-    var $crabgrasslist = $('#crabgrasslist');
+//    var $crabgrasslist = $('#crabgrasslist');
 
     var today = new Date(); // Today!
     var start = new Date(new Date().getFullYear(), 0, 1); // Jan 1 of Current Year
@@ -23,7 +23,6 @@ $(function (){
     var tempMin = 0;
     var tempMax = 0; 
     var heatUnits = 0;
-    
     var cumulativeHeatUnits = 0;
     
     var newElement = new timeTemp() ;
@@ -40,9 +39,6 @@ $(function (){
         success: function(inputted) 
             
             {
-                console.log('success', inputted);
-                console.log(inputted.daily.data["0"].summary); // How to extract data!!
-            
                 // Get current Date
                 cur = new Date(inputted.daily.data["0"].time * 1000);
                 cur.setDate(cur.getDate() + 1); // For some reason, this is a day behind. I think it's API based, but we'll see. This is a fix for now.
@@ -66,19 +62,16 @@ $(function (){
                 }
             
                 
-                $crabgrasslist.append('<font face="courier"><li>' + cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + '</li></font>');
+                crabgrasslist.append(cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + "");
                 dateList.push(cur.toDateString());
                 cumulativeHeatUnits += heatUnits;
-                //dataList.push(cumulativeHeatUnits);
+//                dataList.push(cumulativeHeatUnits);
                 dataList.push(heatUnits);
                 
             }
-            
-            
         }); 
         
-            
-     
+        
        
        newDate = start.setDate(start.getDate() + 1);
        start = new Date(newDate);
@@ -88,16 +81,16 @@ $(function (){
     
 });
 
-function populateList() {
-    
-    // empty list
-    $crabgrasslist.empty();
-    
-    // repopulate
-    timeTempList.forEach(function(entry) {
-        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
-    });
-}
+//function populateList() {
+//    
+//    // empty list
+//    $crabgrasslist.empty();
+//    
+//    // repopulate
+//    timeTempList.forEach(function(entry) {
+//        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
+//    });
+//}
 
 // Show/Hide the list
 $(function () {
