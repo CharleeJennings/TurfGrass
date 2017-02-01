@@ -1,6 +1,14 @@
 var timeTempList = [];
 var dateList = [];
 var dataList =[];
+var forecasts = [];
+
+function forecast(date, tempMin, tempMax, icon){
+    this.date = date;
+    this.tempMin = tempMin;
+    this.tempMax = tempMax;
+    this.icon = icon;
+};
 
 // Get data from JAN1 to date
 $(function (){
@@ -17,9 +25,9 @@ $(function (){
     
     while(start <= today)
     {           
-
         day = start.getTime() / 1000;
     
+        // Get previous data
         $.ajax(
         {
             
@@ -50,6 +58,30 @@ $(function (){
        start = new Date(newDate);
 
     }
+    
+    // Get Forecast
+    $.ajax(
+    {
+        type: 'GET',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/37.8267,-122.4233?exclude=currently,hourly,minutely,alerts,flags',
+        success: function(received)
+        {
+            
+            // Loop through results
+            for (var i=0; i < received.daily.data.length; i++) {
+                fore_tempMin = received.daily.data[i].temperatureMin;
+                fore_tempMax = received.daily.data[i].temperatureMax;
+                fore_icon = received.daily.data[i].icon;
+                fore_date = new Date(received.daily.data[i].time * 1000);
+                fore_date.setDate(fore_date.getDate() + 1);
+                
+                inpt_forecast = new forecast(fore_date, fore_tempMin, fore_tempMax, fore_icon);
+                
+                // push to forecasts array
+                forecasts.push(inpt_forecast);
+            }
+        }
+    })
 });
 
 // Show/Hide the list
@@ -108,13 +140,12 @@ $(function () {
                          name: 'Total Heat Units',
                          data: dataList                         
                      }]
-            });
+                });
              });
             
              $('#container').show();
          } 
          else
-         
          {
              $('#container').hide();
          }
