@@ -41,8 +41,7 @@ $(function (){
             {
                 // Get current Date
                 cur = new Date(inputted.daily.data["0"].time * 1000);
-                cur.setDate(cur.getDate() + 1); // For some reason, this is a day behind. I think it's API based, but we'll see. This is a fix for now.
-         
+                cur.setDate(cur.getDate() + 1); // This prints as a day behind.         
                 
                 tempMin = parseFloat(inputted.daily.data["0"].temperatureMin);
                 tempMax = parseFloat(inputted.daily.data["0"].temperatureMax);
@@ -61,18 +60,14 @@ $(function (){
                     heatUnits = 0;
                 }
             
-                
-                crabgrasslist.append(cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + "");
                 dateList.push(cur.toDateString());
                 cumulativeHeatUnits += heatUnits;
-//                dataList.push(cumulativeHeatUnits);
-                dataList.push(heatUnits);
+                dataList.push( parseFloat(cumulativeHeatUnits.toFixed(2)) );
+//                dataList.push(heatUnits);
                 
             }
         }); 
         
-        
-       
        newDate = start.setDate(start.getDate() + 1);
        start = new Date(newDate);
 
@@ -81,16 +76,16 @@ $(function (){
     
 });
 
-//function populateList() {
-//    
-//    // empty list
-//    $crabgrasslist.empty();
-//    
-//    // repopulate
-//    timeTempList.forEach(function(entry) {
-//        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
-//    });
-//}
+function populateList() {
+    
+    // empty list
+    $crabgrasslist.empty();
+    
+    // repopulate
+    timeTempList.forEach(function(entry) {
+        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
+    });
+}
 
 // Show/Hide the list
 $(function () {
@@ -100,8 +95,6 @@ $(function () {
          var $this = $(this);
          if ($this.is(':checked')) 
          {
-//             populateList();
-             $('#crabgrasslist').show();
              $(function () 
              {
                  
@@ -109,7 +102,7 @@ $(function () {
                 {
                      title: 
                      {
-                            text: 'Average Heatpoint Temperature',
+                            text: 'Net Heat Units',
                             x: -20 //center
                      },
                      subtitle: 
@@ -125,7 +118,7 @@ $(function () {
                      {
                         title: 
                          {
-                            text: 'Temperature (°C)'
+                            text: 'Total Hean Units'
                          },
                          plotLines: 
                          [{
@@ -147,7 +140,7 @@ $(function () {
                      },
                      series: 
                      [{
-                         name: 'Crabgrass',
+                         name: 'Total Heat Units',
                          data: dataList                         
                      }]
             });
@@ -158,7 +151,6 @@ $(function () {
          else
          
          {
-             $('#crabgrasslist').hide();
              $('#container').hide();
          }
      });
