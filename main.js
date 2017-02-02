@@ -1,24 +1,17 @@
 var timeTempList = [];
 var dateList = [];
-var $crabgrasslist = $('#crabgrasslist');
 var dataList =[];
-function timeTemp(date, tempMax, tempMin){
+var forecasts = [];
+
+function forecast(date, tempMin, tempMax, icon){
     this.date = date;
-    this.tempMax = tempMax;
     this.tempMin = tempMin;
-    
-}
+    this.tempMax = tempMax;
+    this.icon = icon;
+};
 
 // Get data from JAN1 to date
-
-
-
 $(function (){
-
-
-    var $crabgrasslist = $('#crabgrasslist');
-
- 
 
     var today = new Date(); // Today!
     var start = new Date(new Date().getFullYear(), 0, 1); // Jan 1 of Current Year
@@ -28,81 +21,68 @@ $(function (){
     var tempMin = 0;
     var tempMax = 0; 
     var heatUnits = 0;
-    
     var cumulativeHeatUnits = 0;
     
-    var newElement = new timeTemp() ;
     while(start <= today)
     {           
-
         day = start.getTime() / 1000;
     
+        // Get previous data
         $.ajax(
         {
             
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/8c96ab646f1284f6e9248c3528fe9146/37.8267,-122.4233,' + day + '?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/37.8267,-122.4233,' + day + '?exclude=currently,hourly,minutely,alerts,flags',
         success: function(inputted) 
             
             {
-                console.log('success', inputted);
-                console.log(inputted.daily.data["0"].summary); // How to extract data!!
-            
                 // Get current Date
                 cur = new Date(inputted.daily.data["0"].time * 1000);
-                cur.setDate(cur.getDate() + 1); // For some reason, this is a day behind. I think it's API based, but we'll see. This is a fix for now.
-         
+                cur.setDate(cur.getDate() + 1); // This prints as a day behind.         
                 
                 tempMin = parseFloat(inputted.daily.data["0"].temperatureMin);
                 tempMax = parseFloat(inputted.daily.data["0"].temperatureMax);
             
-                
-                newElement = new timeTemp(cur, tempMax, tempMin);
-                timeTempList.push(newElement);
-            
-                
                 heatUnits = tempMax + tempMin;
-                heatUnits = heatUnits / 2; // eventually, subtract base
+                heatUnits = heatUnits / 2;
             
-                // if heatUnit is negative default to 0 
-                if (heatUnits < 0) 
-                {
-                    heatUnits = 0;
-                }
-            
-                
-                $crabgrasslist.append('<font face="courier"><li>' + cur.toDateString() + ': '+ tempMax.toFixed(2) +' | '+tempMin.toFixed(2) +' | '+ heatUnits.toFixed(2) + '</li></font>');
                 dateList.push(cur.toDateString());
                 cumulativeHeatUnits += heatUnits;
-                //dataList.push(cumulativeHeatUnits);
-                dataList.push(heatUnits);
+                dataList.push( parseFloat(cumulativeHeatUnits.toFixed(2)) );
+//                dataList.push(heatUnits);
                 
             }
-            
-            
         }); 
         
-            
-     
-       
        newDate = start.setDate(start.getDate() + 1);
        start = new Date(newDate);
 
     }
-  
     
+    // Get Forecast
+    $.ajax(
+    {
+        type: 'GET',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/37.8267,-122.4233?exclude=currently,hourly,minutely,alerts,flags',
+        success: function(received)
+        {
+            
+            // Loop through results
+            for (var i=0; i < received.daily.data.length; i++) {
+                fore_tempMin = received.daily.data[i].temperatureMin;
+                fore_tempMax = received.daily.data[i].temperatureMax;
+                fore_icon = received.daily.data[i].icon;
+                fore_date = new Date(received.daily.data[i].time * 1000);
+                fore_date.setDate(fore_date.getDate() + 1);
+                
+                inpt_forecast = new forecast(fore_date, fore_tempMin, fore_tempMax, fore_icon);
+                
+                // push to forecasts array
+                forecasts.push(inpt_forecast);
+            }
+        }
+    })
 });
-
-function populateList() {
-    
-    // empty list
-    $crabgrasslist.empty();
-    
-    // repopulate
-    timeTempList.forEach(function(entry) {
-        $crabgrasslist.append('<font face="courier"><li>' + entry.date.toDateString() + ': '+ entry.tempMax.toFixed(2) +' | '+entry.tempMin.toFixed(2) +' | </li></font>');
-    });
-}
 
 // Show/Hide the list
 $(function () {
@@ -112,8 +92,6 @@ $(function () {
          var $this = $(this);
          if ($this.is(':checked')) 
          {
-             populateList();
-             $('#crabgrasslist').show();
              $(function () 
              {
                  
@@ -121,7 +99,7 @@ $(function () {
                 {
                      title: 
                      {
-                            text: 'Average Heatpoint Temperature',
+                            text: 'Net Heat Units',
                             x: -20 //center
                      },
                      subtitle: 
@@ -137,7 +115,7 @@ $(function () {
                      {
                         title: 
                          {
-                            text: 'Temperature (°C)'
+                            text: 'Total Hean Units'
                          },
                          plotLines: 
                          [{
@@ -159,18 +137,16 @@ $(function () {
                      },
                      series: 
                      [{
-                         name: 'Crabgrass',
+                         name: 'Total Heat Units',
                          data: dataList                         
                      }]
-            });
+                });
              });
             
              $('#container').show();
          } 
          else
-         
          {
-             $('#crabgrasslist').hide();
              $('#container').hide();
          }
      });
