@@ -7,7 +7,7 @@ function showResult(result) {
 
 function getLatitudeLongitude(callback, address) {
     // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
-    address = address || 'Ferrol, Galicia, Spain';
+    address = address || 'Auburn, AL, USA';
     // Initialize the Geocoder
     geocoder = new google.maps.Geocoder();
     if (geocoder) {
