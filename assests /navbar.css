@@ -1,0 +1,43 @@
+
+.jumbotron
+{
+    margin-top: 0px;
+    height: 200px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.navbar-brand
+{
+    font-size: 25px;
+}
+.navbar
+{
+    height: 65px;
+    padding: 9.5px;
+    background-color: #517240;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0px;
+    border-radius: 0px;
+    font-size: 19px;
+    
+    
+}
+
+
+
+#white
+{
+    color: white;
+}
+
+#turf
+{
+    background-color: #5F8C55;
+    
+}
+#turf2
+{
+    background-color: #6A8847;
+}
