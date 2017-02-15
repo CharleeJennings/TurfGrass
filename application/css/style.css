@@ -1,3 +1,12 @@
-.col-8{
-width: 12.5%;
+.forecast {
+    align-items: center;
+    background-color: darkcyan;
+    border-radius: 15px;
+    color: aliceblue;
+    display: flex;
+    height: 110px;
+    justify-content: center;
+    position: relative;
+    text-align: justify;
+    width: auto;
 }
