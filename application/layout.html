@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>TurfGrass</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -23,15 +23,27 @@
     <!-- Forecast Content -->
     <div class="page-content-wrapper">
         <div class="container-fluid">
-            <h2><center>Forecast</center></h2>
             <div class="row">
+                <div class="col-sm-1">
+                    <center>
+                        <button type="button" id="forecast-btn" class="btn btn-primary btn-primary-spacing" onclick="forecastToggle()">Show/Hide Forecast</button>
+                    </center>
+                </div>
+            </div>
+            <div class="row" id="forecast-row">
+                <center>
+                    <h2>Forecast</h2></center>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="forecast">
                                 <div class="col-sm-2"><img src="images/weather_icon/Cloud-50.png"> </div>
                                 <div class="col-sm-2"></div>
-                                <div class="col-sm-8"><p>DATE<br>HIGH: 76<br>LOW:55</p></div>
+                                <div class="col-sm-8">
+                                    <p>DATE
+                                        <br>HIGH: 76
+                                        <br>LOW:55</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -92,6 +104,18 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- Custon Script to Show/Hide Forecast -->
+    <script>
+        function forecastToggle() {
+            var x = document.getElementById('forecast-row');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+            }
+            else {
+                x.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 
 </html>
