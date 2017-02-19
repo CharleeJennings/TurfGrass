@@ -14,3 +14,7 @@
     text-align: justify;
     width: auto;
 }
+
+body { 
+    padding-top: 50px; 
+}
