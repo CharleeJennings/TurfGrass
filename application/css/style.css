@@ -15,6 +15,26 @@
     width: auto;
 }
 
-body { 
-    padding-top: 50px; 
+.graph {
+    align-items: center;
+    background-color: darkseagreen;
+    border-radius: 15px;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    position: relative;
+    text-align: justify;
+    width: auto;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+body {
+    padding-top: 50px;
+}
+
+[class*="col-"] {
+    margin-bottom: 15px;
 }

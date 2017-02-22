@@ -1,6 +1,7 @@
 /* This showResult function is used as the callback function*/
 
 function showResult(result) {
+    console.log(result.geometry.location.lat());
     document.getElementById('latitude').value = result.geometry.location.lat();
     document.getElementById('longitude').value = result.geometry.location.lng();
 }
