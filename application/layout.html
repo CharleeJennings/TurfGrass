@@ -10,7 +10,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Glyphicon CSS -->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -53,14 +53,29 @@
         </div>
         <!-- /.container -->
     </nav>
-    
     <!-- SIDEBAR / WEED LIST -->
-    <div id="mySidenav" class="sidenav"> <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
-        <a href="#">Weed1</a> 
-        <a href="#">Weed2</a> 
-        <a href="#">Weed3</a> 
+    <div id="mySidenav" class="sidenav"> <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">
+            <input type="checkbox" id="tropicalSignalgrassCheckbox">Tropical Signalgrass</a>
+        <a href="#">
+            <input type="checkbox" id="smoothCrabgrassCheckbox"> Smooth Crabgrass</a>
+        <a href="#">
+            <input type="checkbox" id="henbitCheckbox"> Henbit</a>
+        <a href="#">
+            <input type="checkbox" id="commonChickweedCheckbox"> Common Chickweed</a>
+        <a href="#">
+            <input type="checkbox" id="giantFoxtailCheckbox"> Giant Foxtail</a>
+        <a href="#">
+            <input type="checkbox" id="yellowFoxtailCheckbox"> Yellow Foxtail</a>
+        <a href="#">
+            <input type="checkbox" id="greenFoxtailCheckbox"> Green Foxtail</a>
+        <a href="#">
+            <input type="checkbox" id="fieldSandburCheckbox"> Field Sandbur</a>
+        <a href="#">
+            <input type="checkbox" id="goosegrassCheckbox"> Goosegrass</a>
+        <a href="#">
+            <input type="checkbox" id="bluegrassSeedheadCheckbox"> Bluegrass Seedhead</a>
     </div>
-    
     <!-- Use any element to open the sidenav -->
     <center>
         <h1 id="location">Location</h1></center>
@@ -113,50 +128,48 @@
                     <h1>Weeds</h1>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="graph">Weed1</div>
+                            <div class="graph" id="tropicalSignalgrassContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed2</div>
+                            <div class="graph" id="smoothCrabgrassContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed3</div>
+                            <div class="graph" id="henbitContainer"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="graph">Weed4</div>
+                            <div class="graph" id="commonChickweedContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed5</div>
+                            <div class="graph" id="giantFoxtailContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed6</div>
+                            <div class="graph" id="yellowFoxtailContainer"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="graph">Weed7</div>
+                            <div class="graph" id="greenFoxtailContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed8</div>
+                            <div class="graph" id="woolyCupgrassContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">Weed9</div>
+                            <div class="graph" id="fieldSandburContainer"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="graph">WeedA</div>
+                            <div class="graph" id="goosegrassContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">WeedB</div>
+                            <div class="graph" id="bluegrassSeedheadContainer"></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="graph">WeedC</div>
+                            <div class="graph"></div>
                         </div>
                     </div>
-                    <br>
-                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
                 </div>
             </div>
         </div>
@@ -167,11 +180,16 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Glyphicon CSS -->
+    <!-- Glyphicon JS -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Highcharts JS -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Custon JS-->
     <script src="js/layout.js"></script>
     <script src="js/location.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/weeds.js"></script>
     <!-- To use Geocoding from Google Maps V3 you need to link https://maps.googleapis.com/maps/api/js?sensor=false -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsxxLeyTkifethGupaHIOKbCYRCFG4lQk" type="text/javascript"></script>
     </script>

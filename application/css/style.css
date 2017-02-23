@@ -17,10 +17,9 @@
 
 .graph {
     align-items: center;
-    background-color: darkseagreen;
     border-radius: 15px;
     display: flex;
-    height: 300px;
+    height: 400px;
     justify-content: center;
     position: relative;
     text-align: justify;
