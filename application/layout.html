@@ -32,6 +32,12 @@
                     <li class="hidden">
                         <a class="page-scroll"></a>
                     </li>
+                    <li>
+                        <a class="page-scroll">
+                            <input id="address" type="text" placeholder="Enter address here" />
+                            <button id="btn">Get Location</button>
+                        </a>
+                    </li>
                     <li> <a class="page-scroll" onclick="forecastToggle()">Toggle Forecast</a> </li>
                     <li> <a class="page-scroll" href="#services">Topic2</a> </li>
                     <li> <a class="page-scroll" href="#contact">Topic3</a> </li>
@@ -42,12 +48,14 @@
         </div>
         <!-- /.container -->
     </nav>
+    <center>
+        <h1 id="location">Location</h1></center>
     <!-- Forecast Content -->
     <div class="page-content-wrapper">
         <div class="container-fluid">
             <div class="row" id="forecast-row">
                 <center>
-                    <h2>Forecast</h2></center>
+                    <h2 id="forecast-title">Forecast</h2> </center>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-md-3">
@@ -147,6 +155,9 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Custon JS-->
     <script src="js/layout.js"></script>
+    <script src="js/location.js"></script>
+    <!-- To use Geocoding from Google Maps V3 you need to link https://maps.googleapis.com/maps/api/js?sensor=false -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsxxLeyTkifethGupaHIOKbCYRCFG4lQk" type="text/javascript"></script>
     </script>
 </body>
 
