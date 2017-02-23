@@ -20,7 +20,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
+    
+<!-- INVISIBLE - For JS files. Default location is Auburn, AL-->
+<div id="lat" style="display:none">32.5933574</div>
+<div id="lng" style="display:none">-85.4951663</div>
+    
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -38,7 +42,7 @@
                     <li>
                         <a class="page-scroll">
                             <input id="address" type="text" placeholder="Enter address here" />
-                            <button id="btn">Get Location</button>
+                            <button id="btn-location">Get Location</button>
                         </a>
                     </li>
                 </ul>
@@ -127,7 +131,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Weeds</h1>
+                    <center><h1>Weeds</h1></center>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="graph" id="tropicalSignalgrassContainer"></div>
@@ -188,8 +192,6 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Custon JS-->
-    <script src="application/js/layout.js"></script>
-    <script src="application/js/location.js"></script>
     <script src="application/js/main.js"></script>
     <script src="application/js/weeds.js"></script>
     <!-- To use Geocoding from Google Maps V3 you need to link https://maps.googleapis.com/maps/api/js?sensor=false -->

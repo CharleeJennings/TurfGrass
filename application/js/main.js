@@ -11,7 +11,7 @@ function forecast(date, tempMin, tempMax, icon){
 };
 
 // Get data from JAN1 to date
-$(function (){
+function getData(){
     $('#tropicalSignalgrassContainer').hide();
     $('#smoothCrabgrassContainer').hide();
     $('#henbitContainer').hide();
@@ -34,7 +34,10 @@ $(function (){
     var tempMax = 0; 
     var heatUnits = 0;
     var cumulativeHeatUnits = 0;
-    
+    var lat = document.getElementById("lat").innerHTML.toString();
+    var lng = document.getElementById("lng").innerHTML.toString();
+    dateList = [];
+    dataList = [];
     while(start <= today)
     {           
         day = start.getTime() / 1000;
@@ -44,7 +47,7 @@ $(function (){
         {
             
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/6bfe44f3468c932e8fe382e413162a45/37.8267,-122.4233,' + day + '?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/6bfe44f3468c932e8fe382e413162a45/' + lat + ',' + lng + ',' + day + '?exclude=currently,hourly,minutely,alerts,flags',
         success: function(inputted) 
             
             {
@@ -88,7 +91,7 @@ $(function (){
     $.ajax(
     {
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/37.8267,-122.4233?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/'+ lat + ',' + lng + '?exclude=currently,hourly,minutely,alerts,flags',
         success: function(received)
         {
             
@@ -107,7 +110,61 @@ $(function (){
             }
         }
     })
+    
+};
+
+/* LAYOUT JS */
+function forecastToggle() {
+    var x = document.getElementById('forecast-row');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    }
+    else {
+        x.style.display = 'none';
+    }
+};
+
+// Sidebar
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+/* LOCATION JS */
+function showResult(result) {
+    document.getElementById("lat").innerHTML = result.geometry.location.lat().toString();
+    document.getElementById("lng").innerHTML = result.geometry.location.lng().toString();
+    document.getElementById("location").innerHTML = result.formatted_address;
+    document.getElementById("forecast-title").innerHTML = "Forecast for " + result.formatted_address;
+    getData();
+}
+
+function getLatitudeLongitude(callback, address) {
+    // If adress is not supplied, use default value 'Auburn, AL, USA'
+    address = address || 'Auburn, AL, USA';
+    // Initialize the Geocoder
+    geocoder = new google.maps.Geocoder();
+    if (geocoder) {
+        geocoder.geocode({
+            'address': address
+        }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                callback(results[0]);
+            }
+        });
+    }
+}
+
+var button = document.getElementById('btn-location');
+button.addEventListener("click", function () {
+    var address = document.getElementById('address').value;
+    getLatitudeLongitude(showResult, address)
 });
+
+/* ************** */
 
 // Show/Hide the list
 $(function () {
