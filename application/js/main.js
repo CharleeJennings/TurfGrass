@@ -193,6 +193,10 @@ $(function () {
                      },
                     yAxis: 
                      {
+                         title: 
+                         {
+                            text: 'Total Heat Units'
+                         },
                          softMax: tropicalSignalgrass.peak,
                          plotLines: 
                          [{
@@ -208,8 +212,8 @@ $(function () {
                              {
                                  text: "Start",
                                  align: "right",
-                                 x: 30,
-                                 y: 10
+//                                 x: 30,
+                                 y: 15
                              }
                          },
                          {
@@ -231,6 +235,7 @@ $(function () {
                     },
                      series: 
                      [{
+                         name : 'Total Heat Units',
                          //data: dataList
                          data: tropicalSignalgrass.datalist
                      }]
@@ -265,13 +270,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Smooth Crabgrass Net Heat Units',
+                            text: 'Smooth Crabgrass',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -299,7 +299,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -312,7 +312,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -320,13 +320,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -364,14 +357,10 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Henbit Net Heat Units',
+                            text: 'Henbit',
                             x: -20 //center
                      },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
-                     },
+                    
                     xAxis: 
                      {
                          categories: dateList
@@ -398,7 +387,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -411,7 +400,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -419,13 +408,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -463,13 +445,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Common Chickweed Net Heat Units',
+                            text: 'Common Chickweed',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -497,7 +474,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -510,7 +487,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -518,13 +495,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -562,13 +532,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Giant Foxtail Net Heat Units',
+                            text: 'Giant Foxtail',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -596,7 +561,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -609,7 +574,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -617,13 +582,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -661,13 +619,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Yellow Foxtail Net Heat Units',
+                            text: 'Yellow Foxtail',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -695,7 +648,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -708,7 +661,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -716,13 +669,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -760,13 +706,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Green Foxtail Net Heat Units',
+                            text: 'Green Foxtail',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -794,7 +735,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -807,7 +748,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -815,13 +756,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -859,13 +793,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Wooly Cupgrass Net Heat Units',
+                            text: 'Wooly Cupgrass',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -893,7 +822,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -906,7 +835,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -914,13 +843,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -958,13 +880,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Field Sandbur Net Heat Units',
+                            text: 'Field Sandbur',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -992,7 +909,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -1005,7 +922,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -1013,13 +930,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -1057,13 +967,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Goosegrass Net Heat Units',
+                            text: 'Goosegrass',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -1091,7 +996,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -1104,7 +1009,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -1112,13 +1017,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
@@ -1156,13 +1054,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Bluegrass Seedhead Net Heat Units',
+                            text: 'Bluegrass Seedhead',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -1190,7 +1083,7 @@ $(function () {
                                  text: "Start",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30,
+//                                 x: 30,
                                  y: 10
                              }
                          },
@@ -1203,7 +1096,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+//                                 x: 30
                              }
                          }]
                     },
@@ -1211,13 +1104,6 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
                          name: 'Total Heat Units',
