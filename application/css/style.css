@@ -2,28 +2,13 @@
     margin-top: 10px;
 }
 
-.forecast {
-    align-items: center;
-    background-color: darkcyan;
-    border-radius: 15px;
-    color: aliceblue;
-    display: flex;
-    height: 110px;
-    justify-content: center;
-    position: relative;
-    text-align: justify;
-    width: auto;
-}
-
 .graph {
     align-items: center;
     border-radius: 15px;
     display: flex;
-    height: 400px;
     justify-content: center;
     position: relative;
     text-align: justify;
-    width: auto;
 }
 
 
@@ -31,7 +16,21 @@
     margin-top: 20px;
 }
 
+body {
+    padding-top: 50px;
+    background-color: #8fbc8f;
+}
 
+.container-main {
+    background-color: #eed5b7;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.container-forecast {
+    background-color: #2e8b57;
+    padding: 15px;
+}
 
 [class*="col-"] {
     margin-bottom: 15px;

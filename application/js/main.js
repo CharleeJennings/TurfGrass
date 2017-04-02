@@ -10,6 +10,10 @@ function forecast(date, tempMin, tempMax, icon){
     this.icon = icon;
 };
 
+function convertFtoC(tempF) {
+  return (tempF - 32.0) * (5/9)  
+};
+
 // Get data from JAN1 to date
 function getData(){
     $('#tropicalSignalgrassContainer').hide();
@@ -26,7 +30,7 @@ function getData(){
         
 
     var today = new Date(); // Today!
-    var start = new Date(new Date().getFullYear(), 0, 1); // Jan 1 of Current Year
+    var start = new Date(new Date().getFullYear(), 2, 1); // Jan 1 of Current Year
     var cur = new Date();
     var newDate = new Date();
     var day = 0;
@@ -47,7 +51,7 @@ function getData(){
         {
             
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/6bfe44f3468c932e8fe382e413162a45/' + lat + ',' + lng + ',' + day + '?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/' + lat + ',' + lng + ',' + day + '?exclude=currently,hourly,minutely,alerts,flags',
         success: function(inputted) 
             
             {
@@ -55,8 +59,8 @@ function getData(){
                 cur = new Date(inputted.daily.data["0"].time * 1000);
                 cur.setDate(cur.getDate() + 1); // This prints as a day behind.         
                 
-                tempMin = parseFloat(inputted.daily.data["0"].temperatureMin);
-                tempMax = parseFloat(inputted.daily.data["0"].temperatureMax);
+                tempMin = convertFtoC(parseFloat(inputted.daily.data["0"].temperatureMin));
+                tempMax = convertFtoC(parseFloat(inputted.daily.data["0"].temperatureMax));
                 
                 heatUnits = tempMax + tempMin;
                 heatUnits = heatUnits / 2;
@@ -91,9 +95,14 @@ function getData(){
     $.ajax(
     {
         type: 'GET',
-        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/'+ lat + ',' + lng + '?exclude=currently,hourly,minutely,alerts,flags',
+        url: 'https://api.darksky.net/forecast/59e5c83564468ec7e2ca593eff7e907c/'+ lat + ',' + lng + '?exclude=alerts,flags',
         success: function(received)
         {
+            // Append human-readably summary to Forecast 
+            var weathericon = received.hourly.data[0].icon;
+            
+            document.getElementById("forecast-title").innerHTML = '<h2>' + Math.round(received.daily.data[0].temperatureMax) + 
+                "° / " + Math.round(received.daily.data[0].temperatureMin) + "° " + '<img src="application/images/weather_icon/' + weathericon + '.svg" width="50">' + " " + received.minutely.summary + '</h2><h4>' + received.hourly.summary + '</h4>';
             
             // Loop through results
             for (var i=0; i < received.daily.data.length; i++) {
@@ -114,15 +123,6 @@ function getData(){
 };
 
 /* LAYOUT JS */
-function forecastToggle() {
-    var x = document.getElementById('forecast-row');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    }
-    else {
-        x.style.display = 'none';
-    }
-};
 
 // Sidebar
 function openNav() {
@@ -138,7 +138,6 @@ function showResult(result) {
     document.getElementById("lat").innerHTML = result.geometry.location.lat().toString();
     document.getElementById("lng").innerHTML = result.geometry.location.lng().toString();
     document.getElementById("location").innerHTML = result.formatted_address;
-    document.getElementById("forecast-title").innerHTML = "Forecast for " + result.formatted_address;
     getData();
 }
 
@@ -185,13 +184,8 @@ $(function () {
                      },
                      title: 
                      {
-                            text: 'Tropical Signalgrass Net Heat Units',
+                            text: 'Tropical Signalgrass',
                             x: -20 //center
-                     },
-                     subtitle: 
-                     {
-                        text: 'Powered by DarkSky ',
-                         x: -20
                      },
                     xAxis: 
                      {
@@ -199,10 +193,6 @@ $(function () {
                      },
                     yAxis: 
                      {
-                        title: 
-                         {
-                            text: 'Total Heat Units'
-                         },
                          softMax: tropicalSignalgrass.peak,
                          plotLines: 
                          [{
@@ -231,7 +221,7 @@ $(function () {
                                  text: "Peak",
                                  align: "right",
                                  verticalAlign: "bottom",
-                                 x: 30
+                                 
                              }
                          }]
                     },
@@ -239,16 +229,8 @@ $(function () {
                     {
                          valueSuffix: '°C'
                     },
-                    legend: 
-                     {
-                         layout: 'vertical',
-                         align: 'right',
-                         verticalAlign: 'middle',
-                         borderWidth: 0
-                     },
                      series: 
                      [{
-                         name: 'Total Heat Units',
                          //data: dataList
                          data: tropicalSignalgrass.datalist
                      }]
