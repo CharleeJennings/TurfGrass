@@ -30,7 +30,7 @@ function getData(){
         
 
     var today = new Date(); // Today!
-    var start = new Date(new Date().getFullYear(), 2, 1); // Jan 1 of Current Year
+    var start = new Date(new Date().getFullYear(), 3, 1); // Jan 1 of Current Year
     var cur = new Date();
     var newDate = new Date();
     var day = 0;
