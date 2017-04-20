@@ -45,8 +45,8 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"> <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
-                    <li> <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Weeds<i class="fa fa-fw fa-caret-down"></i></a>
+                    <li> <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a> </li>
+                    <li class="active"> <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Weeds<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li> <a href="#">Bluegrass Seedhead</a> </li>
                             <li> <a href="#">Common Chickweed</a> </li>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Weather <small>Overview</small>
+                            Bluegrass Seedhead
                         </h1> </div>
                 </div>
                 <!-- /.row -->
@@ -90,14 +90,16 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"> Daily Forecast and Current Conditions</h3> </div>
+                                <h3 class="panel-title">Overview</h3> </div>
                             <div class="panel-body">
-                                <div class="col-xs-3">
-                                    <div class="huge" id="forecast-summary"></div>
-                                </div>
-                                <div class="col-xs-9 ">
-                                    <div class="huge" id="forecast-summary-minutely"></div>
-                                    <div id="forecast-summary-hourly"></div>
+                                <div class="container-fluid">
+                                    <div class="col-sm-4"> <img src="images/bluegrass.jpg" width=200></div>
+                                    <div class="col-sm-8">
+                                        <div class="panel panel-warning">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Heat Unit Accumulation</h3> </div>
+                                            <h1 class="panel-body" id="daily-high-low"> <div class="graph" id="bluegrassSeedheadContainer"></div></h1> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +202,7 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
     <!--Custom JS-->
-    <script src="js/forecast.js"></script>
+    <!--    <script src="js/forecast.js"></script>-->
 </body>
 
 </html>

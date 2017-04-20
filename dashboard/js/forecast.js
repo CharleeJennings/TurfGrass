@@ -65,3 +65,4 @@ $(window.document).ready(function () {
     // needs to be rounded to only 3 decimals
     document.getElementById("darksky-map").innerHTML = "<iframe width='100%' frameBorder='0' style='height: 50vh; margin: 25px 0;' src='https://maps.darksky.net/@temperature," + lat.toFixed(3) + "," + long.toFixed(3) + ",11?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_f'></iframe>";
 });
+
