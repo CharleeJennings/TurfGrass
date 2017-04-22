@@ -116,13 +116,13 @@ class USER
 		$mail->SMTPDebug  = 0;
 		$mail->SMTPAuth   = true;
 		$mail->SMTPSecure = "tls";
-		$mail->Host       = "smtp.gmail.com";
+		$mail->Host       = "mx1.hostinger.com";
 		$mail->Port       = 587;             
 		$mail->AddAddress($email);
-		$mail->Username="mjslighthouse@gmail.com";
-		$mail->Password="clockday04";
-		$mail->SetFrom('mjslighthouse@gmail.com','Coding Cage');
-		$mail->AddReplyTo("mjslighthouse@gmail.com","Coding Cage");
+		$mail->Username="no-reply@greenscast.com";
+		$mail->Password="GIAuUmUp9iqe";
+		$mail->SetFrom('no-reply@greenscast.com','GreensCast');
+		$mail->AddReplyTo("mjslighthouse@gmail.com","GreensCast");
 		$mail->Subject    = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();

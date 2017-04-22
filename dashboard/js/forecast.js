@@ -3,8 +3,8 @@ var dateList = [];
 var dataList = [];
 var forecasts = [];
 var key = "59e5c83564468ec7e2ca593eff7e907c";
-var lat = 32.5933574;
-var long = -85.4951663;
+var lat = 39.091575; //32.5933574;
+var long = -120.803947; //-85.4951663;
 var today = new Date(); // today's date
 function forecast(date, tempMin, tempMax, icon) {
     this.date = date;

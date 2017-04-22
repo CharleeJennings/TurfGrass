@@ -42,12 +42,12 @@ if(isset($_POST['btn-signup']))
 			$message = "					
 						Hello $uname,
 						<br /><br />
-						Welcome to Coding Cage!<br/>
-						To complete your registration  please , just click following link<br/>
+						Welcome to GreensCast!<br/>
+						To complete your registration, please clink the link below!
 						<br /><br />
-						<a href='http://localhost/x/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+						<a href='http://greenscast.com/verify.php?id=$id&code=$code'>Confirm Registration</a>
 						<br /><br />
-						Thanks,";
+						Thanks,<br />The greenscast Team";
 						
 			$subject = "Confirm Registration";
 						
@@ -71,7 +71,7 @@ if(isset($_POST['btn-signup']))
     <html>
 
     <head>
-        <title>Signup | Coding Cage</title>
+        <title>Signup | GreensCast</title>
         <!-- Bootstrap -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">

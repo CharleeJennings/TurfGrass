@@ -13,7 +13,7 @@ function Weed(name, start, peak, base) {
 var bluegrassSeedhead = new Weed("Bluegrass Seedhead",
                                 30, 45, 13);
 
-bluegrassSeedhead.datalist = [15,21, 44];
+bluegrassSeedhead.datalist = [15,21, 23, 25, 28 ,30, 31];
 
 //Show and hide Bluegrass Seedhead
 $(function () {
